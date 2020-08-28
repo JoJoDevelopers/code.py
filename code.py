@@ -35,7 +35,7 @@ async def kick(ctx, member: discord.Member = None, *, reason):
 	await ctx.channel.purge( limit = 1)
 	await member.kick( reason = reason)
 	await ctx.send(embed = discord.Embed(
-		title = f"""Gunther""",
+		title = f"""Kick""",
 		description = f"""
 		Бот кикнул пользователя {member.mention}. Причина: {reason}
 		Попросил: {ctx.author.mention}""",
@@ -51,7 +51,7 @@ async def ban( ctx, member: discord.Member, *, reason):
 	await ctx.channel.purge( limit = 1)
 	await member.ban( reason = reason)
 	await ctx.send(embed = discord.Embed(
-		title = f"""Gunther""",
+		title = f"""Ban""",
 		description = f"""
 		Бот забанил игрока {member.mention}. Причина: {reason}
 		Попросил: {ctx.author.mention}""",
@@ -70,7 +70,7 @@ async def mute( ctx, member: discord.Member, reason):
 
 	await member.add_roles(mute_role)
 	await ctx.send(embed = discord.Embed(
-		title = f"""Gunther""",
+		title = f"""Mute""",
 		description = f"""
 		Бот дал мут игроку {member.mention}. Причина: {reason}
 		Попросил: {ctx.author.mention}""",
@@ -89,7 +89,7 @@ async def unmute( ctx, member: discord.Member, reason):
 
 	await member.remove_roles(mute_role)
 	await ctx.send(embed = discord.Embed(
-		title = f"""Gunther""",
+		title = f"""Unmute""",
 		description = f"""
 		Бот убрал мут с игрока {member.mention}. Причина: {reason}
 		Попросил: {ctx.author.mention}""",
@@ -110,7 +110,7 @@ async def unban(ctx, *, member, reason):
 
 		await ctx.guild.unban(user)
 		await ctx.send(embed = discord.Embed(
-		title = f"""Gunther""",
+		title = f"""Unban""",
 		description = f"""
 		Бот разбанил игрока {member.mention}. Причина: {reason}
 		Попросил: {ctx.author.mention}""",
