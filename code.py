@@ -127,6 +127,24 @@ async def unban(ctx, *, member, reason):
 @commands.has_permissions( administrator = True)
 async def clear(ctx, amount=5):
 	await ctx.channel.purge(limit=amount)
+
+#=========================================================
+#					Команда "changestatus"
+#=========================================================
+@client.command()
+@commands.has_permissions( administrator = True )
+async def changestatus( ctx, statustype:str = None, *, arg:str = None):
+    if statustype is None: # Type Check
+        await ctx.send( 'Вы не указали тип Статуса' )
+    elif arg is None: # Arg Check
+        await ctx.send( 'Вы не указали нужный аргумент' )
+    else:
+        if statustype.lower() == 'game': # Game
+            await Bot.change_presence (activity=discord.Game( name = arg) )
+        elif statustype.lower() == 'listen': # Listen
+            await Bot.change_presence( activity=discord.Activity( type=discord.ActivityType.listening, name = arg) )
+        elif statustype.lower() == 'watch': # Watch
+            await Bot.change_presence( activity=discord.Activity( type=discord.ActivityType.watching, name = arg) )
 #=========================================================
 #					Run a bot
 #=========================================================
